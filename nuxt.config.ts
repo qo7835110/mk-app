@@ -12,7 +12,21 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
   ],
-
+  // 字體
+  fonts: {
+    defaults: {
+      subsets: ['chinese-traditional'],
+      fallbacks: {
+        'sans-serif': ['Noto Sans TC']
+      }
+    },
+    families: [
+      {
+        name: 'Noto Sans TC',
+        provider: 'google'
+      }
+    ]
+  },
   // SEO 和 meta 設定
   app: {
     head: {

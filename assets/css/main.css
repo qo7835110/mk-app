@@ -1,1 +1,51 @@
 @import "tailwindcss";
+
+@theme {
+    --color-primary: #EE7959;
+    --color-primary-50: #FF9B80;
+    --color-primary-100: #FDBDAC;
+    --color-primary-200: #EE795959;
+    --color-primary-300: oklch(0.82 0.08 264);
+    --color-primary-400: oklch(0.72 0.15 264);
+    --color-primary-500: oklch(0.45 0.29 264);
+    /* 與 DEFAULT 相同 */
+    --color-primary-600: oklch(0.35 0.25 264);
+    --color-primary-700: oklch(0.28 0.20 264);
+    --color-primary-800: oklch(0.22 0.15 264);
+    --color-primary-900: oklch(0.16 0.10 264);
+    --color-primary-950: oklch(0.10 0.05 264);
+
+    /* 調整預設棕色 */
+    --color-brown: #362010;
+    --color-brown-50: #4C3829;
+    --color-brown-100: #615042;
+    --color-brown-200: #77685B;
+    --color-brown-300: #8C8074;
+    --color-brown-400: #A2978C;
+    --color-brown-500: #B7AFA5;
+    --color-brown-600: #CDC7BE;
+    --color-brown-700: #E2DFD7;
+    --color-brown-800: #F8F7F0;
+    
+
+    /* 使用 CSS 變數 */
+    --font-family-sans: "enYoGothic TW", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+
+    /* 調整預設 serif 字體 */
+    --font-family-serif: "Noto Serif TC", ui-serif, Georgia, serif;
+
+    /* 調整預設 mono 字體 */
+    --font-family-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* 設定全域預設字體 */
+@layer base {
+    html {
+        font-family: theme(--font-family-sans);
+    }
+
+    body {
+        font-family: theme(--font-family-sans);
+        font-weight: theme(--font-weight-normal);
+    }
+}

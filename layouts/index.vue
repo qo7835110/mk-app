@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="bg-[#F8F7F0]">
     <Head>
         <Title>首頁 - {{ siteName }}</Title>
         <Meta name="description" content="歡迎來到我們的首頁" />
