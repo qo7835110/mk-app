@@ -16,17 +16,19 @@
     --color-primary-950: oklch(0.10 0.05 264);
 
     /* 調整預設棕色 */
-    --color-brown: #362010;
-    --color-brown-50: #4C3829;
-    --color-brown-100: #615042;
-    --color-brown-200: #77685B;
-    --color-brown-300: #8C8074;
+    --color-brown-50: #F8F7F0;
+    --color-brown-100: #E2DFD7;
+    --color-brown-200: #CDC7BE;
+    --color-brown-300: #B7AFA5;
     --color-brown-400: #A2978C;
-    --color-brown-500: #B7AFA5;
-    --color-brown-600: #CDC7BE;
-    --color-brown-700: #E2DFD7;
-    --color-brown-800: #F8F7F0;
-    
+    --color-brown-500: #8C8074;
+    --color-brown-600: #77685B;
+    --color-brown-700: #615042;
+    --color-brown-800: #4C3829;
+    --color-brown-900: #362010;
+    /* BW/1000 */
+    --color-brown: #362010;
+
 
     /* 使用 CSS 變數 */
     --font-family-sans: "enYoGothic TW", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;

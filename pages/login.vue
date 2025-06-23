@@ -172,24 +172,24 @@
                 <div>
                     <div class=" font-black text-[16px] text-brown-400 my-[18px]">帳號資訊</div>
                     <div>
-                        <input type="text" class="w-full rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
+                        <input type="text" class="w-full rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] placeholder:text-brown-200"
                             placeholder="暱稱" />
                         <div class="text-[10px] text-brown-400 font-bold  px-[16px] py-[8px]">
                             *與其他學習者互動時呈現的名稱，不可更改，請謹慎取名，避免違反善良風俗。</div>
                     </div>
                     <div>
-                        <input type="text" class="w-full rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
+                        <input type="text" class="w-full rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] placeholder:text-brown-200"
                             placeholder="使用者帳號" />
                         <div class="text-[10px] text-brown-400 font-bold  px-[16px] py-[8px]">
                             *登入帳號</div>
                     </div>
                     <div>
-                        <input type="mail" class="w-full rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
+                        <input type="mail" class="w-full rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] placeholder:text-brown-200"
                             placeholder="電子郵件" />
                     </div>
                     <div class="mt-[8px] flex items-center">
                         <input type="password"
-                            class="rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px] w-[128px] mr-[8px]"
+                            class="rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] w-[128px] mr-[8px] placeholder:text-brown-200"
                             placeholder="電子郵件驗證碼" />
                         <button
                             class="rounded-4xl bg-brown-400 px-[16px] py-[8px] text-[12px] w-[128px] text-white font-bold flex items-center justify-center mr-[8px]">
@@ -204,7 +204,7 @@
                             </svg>
                         </button>
                         <button
-                            class="rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px] w-[82px] text-white font-bold flex items-center justify-center">
+                            class="rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] w-[82px] text-white font-bold flex items-center justify-center">
                             <div class="mr-[8px] text-white">
                                 驗證
                             </div>
@@ -217,13 +217,13 @@
                         </button>
                     </div>
                     <div class="mt-[8px]">
-                        <input type="password" class="w-full rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
+                        <input type="password" class="w-full rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] placeholder:text-brown-200"
                             placeholder="登入密碼" />
                         <div class="text-[10px] text-brown-400 font-bold  px-[16px] py-[8px]">
                             *密碼需同時包含「大寫字母」、「小寫字母」、及「特殊符號」，限制8-20字元。</div>
                     </div>
                     <div class="">
-                        <input type="password" class="w-full rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
+                        <input type="password" class="w-full rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] placeholder:text-brown-200"
                             placeholder="密碼確認" />
                     </div>
                 </div>
@@ -233,11 +233,11 @@
                 <div>
                     <div class=" font-black text-[16px] text-brown-400 my-[18px]">個人資訊</div>
                     <div>
-                        <input type="text" class="w-[120px] rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
+                        <input type="text" class="w-[120px] rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] placeholder:text-brown-200"
                             placeholder="姓" />
                     </div>
                     <div class="mt-[8px]">
-                        <input type="text" class="w-[120px] rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
+                        <input type="text" class="w-[120px] rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] placeholder:text-brown-200"
                             placeholder="名" />
                     </div>
                     <div class="mt-[8px] w-[120px]">
@@ -256,14 +256,6 @@
                 </div>
                 <div>
                     <div class=" font-black text-[16px] text-brown-400 my-[18px]">聯絡資訊</div>
-                    <div>
-                        <input type="text" class="w-[120px] rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
-                            placeholder="姓" />
-                    </div>
-                    <div class="mt-[8px]">
-                        <input type="text" class="w-[120px] rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
-                            placeholder="名" />
-                    </div>
                     <div class="mt-[8px] flex items-center">
                         <div class="w-[120px]">
                             <Select placeholder="居住城市" />
@@ -273,19 +265,19 @@
                         </div>
                     </div>
                     <div class="mt-[8px]">
-                        <input type="text" class="w-full rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
+                        <input type="text" class="w-full rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] placeholder:text-brown-200"
                             placeholder="地址" />
                     </div>
                     <div class="mt-[8px]">
-                        <input type="phone" class="w-[248px] rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]"
+                        <input type="phone" class="w-[248px] rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] placeholder:text-brown-200"
                             placeholder="手機號碼 Ex: 0912345678" />
                     </div>
                     <div class="mt-[8px] flex items-center">
                         <input type="password"
-                            class="rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px] w-[100px] mr-[8px]"
+                            class="rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] w-[100px] mr-[8px] placeholder:text-brown-200"
                             placeholder="手機驗證碼" />
                         <button
-                            class="rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px] w-[190px] text-white font-bold flex items-center justify-center mr-[8px]">
+                            class="rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px] w-[190px] text-white font-bold flex items-center justify-center mr-[8px]">
                             <div class="mr-[8px] text-white">
                                 已寄出，重新寄出60s
                             </div>
@@ -362,6 +354,6 @@ const handleSubmit = () => {
 
 // 設置頁面 meta
 useHead({
-    title: 'Nuxt Teleport Modal 範例'
+    title: 'MK 翻轉外語'
 })
 </script>

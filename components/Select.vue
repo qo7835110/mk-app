@@ -5,7 +5,7 @@
           @click="toggleDropdown"
           class="
             w-full
-            rounded-4xl bg-brown-700 px-[16px] py-[8px] text-[12px]
+            rounded-4xl bg-brown-100 px-[16px] py-[8px] text-[12px]
             font-bold
             text-brown-200
             hover:bg-stone-300
