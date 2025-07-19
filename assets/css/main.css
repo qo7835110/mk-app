@@ -15,6 +15,11 @@
     --color-primary-900: oklch(0.16 0.10 264);
     --color-primary-950: oklch(0.10 0.05 264);
 
+    --color-secondary: #347462;
+    --color-secondary-50: #21A07D;
+    --color-secondary-100: #40DDB0;
+    --color-secondary-200: #34746259;
+
     /* 調整預設棕色 */
     --color-brown-50: #F8F7F0;
     --color-brown-100: #E2DFD7;
