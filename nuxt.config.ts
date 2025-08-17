@@ -56,6 +56,11 @@ export default defineNuxtConfig({
   // CSS 設定
   css: ['~/assets/css/main.css'],
 
+  // Build 配置 - 處理 ECharts SSR 問題
+  build: {
+    transpile: ['vue-echarts', 'echarts']
+  },
+
   // Nitro 設定（用於 SEO）
   nitro: {
     prerender: {

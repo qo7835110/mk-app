@@ -3,13 +3,27 @@
     <div class="relative flex items-center justify-center">
         <svg :height="radius * 2" :width="radius * 2" class="transform -rotate-90">
             <!-- 背景圓圈 -->
-            <circle :stroke="bgStrokeColor" fill="transparent" :stroke-width="strokeWidth" :r="normalizedRadius"
-                :cx="radius" :cy="radius" />
+            <circle 
+                :stroke="bgStrokeColor" 
+                fill="transparent" 
+                :stroke-width="strokeWidth" 
+                :r="normalizedRadius"
+                :cx="radius" 
+                :cy="radius" 
+            />
             <!-- 進度圓圈 -->
-            <circle :stroke="strokeColor" fill="transparent" :stroke-width="strokeWidth"
-                :stroke-dasharray="strokeDasharray" :style="{ strokeDashoffset: strokeDashoffset }"
-                stroke-linecap="round" :r="normalizedRadius" :cx="radius" :cy="radius"
-                class="transition-all duration-300 ease-in-out" />
+            <circle 
+                :stroke="strokeColor" 
+                fill="transparent" 
+                :stroke-width="strokeWidth"
+                :stroke-dasharray="strokeDasharray" 
+                :style="{ strokeDashoffset: strokeDashoffset }"
+                stroke-linecap="round" 
+                :r="normalizedRadius" 
+                :cx="radius" 
+                :cy="radius"
+                class="transition-all duration-300 ease-in-out" 
+            />
         </svg>
         <div class="absolute inset-0 flex items-center justify-center">
             <slot />
@@ -40,8 +54,14 @@ const props = defineProps({
 })
 
 const percentage = computed(() => (props.value / props.maxValue) * 100)
-const radius = computed(() => props.size === 'large' ? 40 : 28)
-const strokeWidth = computed(() => props.size === 'large' ? 8 : 5)
+const radius = computed(() => {
+    if (props.size === 'extra-large') return 50
+    return props.size === 'large' ? 40 : 28
+})
+const strokeWidth = computed(() => {
+    if (props.size === 'extra-large') return 10
+    return props.size === 'large' ? 8 : 5
+})
 const normalizedRadius = computed(() => radius.value - strokeWidth.value * 2)
 const circumference = computed(() => normalizedRadius.value * 2 * Math.PI)
 const strokeDasharray = computed(() => `${circumference.value} ${circumference.value}`)
@@ -54,7 +74,8 @@ const colorMap = {
     red: '#f87171',
     green: '#34d399',
     yellow: '#fbbf24',
-    blue: '#60a5fa'
+    blue: '#60a5fa',
+    white: '#ffffff'
 }
 
 const bgColorMap = {
@@ -62,7 +83,8 @@ const bgColorMap = {
     red: '#ffffff',
     green: '#e9fff9',
     yellow: '#fff6e3',
-    blue: '#e4eaff'
+    blue: '#e4eaff',
+    white: 'rgba(255, 255, 255, 0.2)'
 }
 
 const strokeColor = computed(() => colorMap[props.color])

@@ -56,3 +56,53 @@
         font-weight: theme(--font-weight-normal);
     }
 }
+
+/* 隱藏滾動條樣式 */
+@layer utilities {
+    .scrollbar-hide {
+        /* Firefox */
+        scrollbar-width: none;
+
+        /* Safari and Chrome */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .scrollbar-thin {
+        /* Firefox */
+        scrollbar-width: thin;
+
+        /* Safari and Chrome */
+        &::-webkit-scrollbar {
+            height: 4px;
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: theme('colors.gray.100');
+            border-radius: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: theme('colors.gray.400');
+            border-radius: 12px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.gray.500');
+        }
+    }
+
+    .shadow {
+        box-shadow: 0px 4px 12px 0px #00000040;
+    }
+
+    .writing-vertical-rl {
+        writing-mode: vertical-rl;
+    }
+
+    .writing-vertical-lr {
+        writing-mode: vertical-lr;
+    }
+}

@@ -28,20 +28,16 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import dayjs from 'dayjs'
 import Calendar from './Calendar.vue'
 
 const calendarRef = ref(null)
-const selectedDate = ref(new Date())
+const selectedDate = ref(dayjs())
 const viewMode = ref('month')
 
 const formatSelectedDate = computed(() => {
     if (!selectedDate.value) return ''
-    return selectedDate.value.toLocaleDateString('zh-TW', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        weekday: 'long'
-    })
+    return selectedDate.value.format('YYYY年M月D日 dddd')
 })
 
 const handleDateSelect = (date) => {

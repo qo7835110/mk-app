@@ -41,11 +41,12 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import dayjs from 'dayjs'
 
 const props = defineProps({
     modelValue: {
-        type: Date,
-        default: () => new Date()
+        type: [Date, Object],
+        default: () => dayjs()
     },
     highlightToday: {
         type: Boolean,
@@ -55,35 +56,36 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'dateSelect'])
 
-const currentDate = ref(new Date(props.modelValue))
-const selectedDate = ref(new Date(props.modelValue))
+const currentDate = ref(dayjs(props.modelValue))
+const selectedDate = ref(dayjs(props.modelValue))
 
 const weekDays = ['一', '二', '三', '四', '五', '六', '日']
 
-const currentYear = computed(() => currentDate.value.getFullYear())
-const currentMonth = computed(() => currentDate.value.getMonth() + 1)
+const currentYear = computed(() => currentDate.value.year())
+const currentMonth = computed(() => currentDate.value.month() + 1)
 
 // 獲取當月日曆數據
 const calendarDates = computed(() => {
-    const year = currentDate.value.getFullYear()
-    const month = currentDate.value.getMonth()
+    const year = currentDate.value.year()
+    const month = currentDate.value.month()
 
     // 當月第一天
-    const firstDay = new Date(year, month, 1)
+    const firstDay = dayjs().year(year).month(month).date(1)
     // 當月最後一天
-    const lastDay = new Date(year, month + 1, 0)
+    const lastDay = firstDay.endOf('month')
 
     // 計算第一週需要顯示的上個月日期
-    const firstDayWeek = (firstDay.getDay() + 6) % 7 // 轉換為週一開始
+    const firstDayWeek = (firstDay.day() + 6) % 7 // 轉換為週一開始
     const prevMonthDays = []
 
     if (firstDayWeek > 0) {
-        const prevMonth = new Date(year, month, 0)
+        const prevMonth = firstDay.subtract(1, 'month')
         for (let i = firstDayWeek - 1; i >= 0; i--) {
+            const day = prevMonth.endOf('month').date() - i
             prevMonthDays.push({
-                day: prevMonth.getDate() - i,
-                month: prevMonth.getMonth(),
-                year: prevMonth.getFullYear(),
+                day: day,
+                month: prevMonth.month(),
+                year: prevMonth.year(),
                 isCurrentMonth: false,
                 isPrevMonth: true
             })
@@ -92,7 +94,7 @@ const calendarDates = computed(() => {
 
     // 當月日期
     const currentMonthDays = []
-    for (let day = 1; day <= lastDay.getDate(); day++) {
+    for (let day = 1; day <= lastDay.date(); day++) {
         currentMonthDays.push({
             day,
             month,
@@ -109,10 +111,11 @@ const calendarDates = computed(() => {
     const remainingCells = totalCells - prevMonthDays.length - currentMonthDays.length
 
     for (let day = 1; day <= remainingCells; day++) {
+        const nextMonthDate = firstDay.add(1, 'month')
         nextMonthDays.push({
             day,
-            month: month + 1,
-            year: month === 11 ? year + 1 : year,
+            month: nextMonthDate.month(),
+            year: nextMonthDate.year(),
             isCurrentMonth: false,
             isNextMonth: true
         })
@@ -123,16 +126,16 @@ const calendarDates = computed(() => {
 
 // 獲取日期樣式
 const getDateClasses = (date) => {
-    const today = new Date()
+    const today = dayjs()
     const isToday = props.highlightToday &&
-        date.year === today.getFullYear() &&
-        date.month === today.getMonth() &&
-        date.day === today.getDate()
+        date.year === today.year() &&
+        date.month === today.month() &&
+        date.day === today.date()
 
     const isSelected = selectedDate.value &&
-        date.year === selectedDate.value.getFullYear() &&
-        date.month === selectedDate.value.getMonth() &&
-        date.day === selectedDate.value.getDate()
+        date.year === selectedDate.value.year() &&
+        date.month === selectedDate.value.month() &&
+        date.day === selectedDate.value.date()
 
     return {
         'text-gray-400': !date.isCurrentMonth,
@@ -144,7 +147,7 @@ const getDateClasses = (date) => {
 
 // 選擇日期
 const selectDate = (date) => {
-    const newDate = new Date(date.year, date.month, date.day)
+    const newDate = dayjs().year(date.year).month(date.month).date(date.day)
     selectedDate.value = newDate
     emit('update:modelValue', newDate)
     emit('dateSelect', newDate)
@@ -152,21 +155,17 @@ const selectDate = (date) => {
 
 // 上一月
 const previousMonth = () => {
-    const newDate = new Date(currentDate.value)
-    newDate.setMonth(newDate.getMonth() - 1)
-    currentDate.value = newDate
+    currentDate.value = currentDate.value.subtract(1, 'month')
 }
 
 // 下一月
 const nextMonth = () => {
-    const newDate = new Date(currentDate.value)
-    newDate.setMonth(newDate.getMonth() + 1)
-    currentDate.value = newDate
+    currentDate.value = currentDate.value.add(1, 'month')
 }
 
 // 跳轉到今天
 const goToToday = () => {
-    const today = new Date()
+    const today = dayjs()
     currentDate.value = today
     selectedDate.value = today
     emit('update:modelValue', today)
@@ -182,7 +181,7 @@ defineExpose({
 onMounted(() => {
     // 如果沒有選中日期，默認選中今天
     if (!selectedDate.value && props.highlightToday) {
-        selectedDate.value = new Date()
+        selectedDate.value = dayjs()
     }
 })
 </script>

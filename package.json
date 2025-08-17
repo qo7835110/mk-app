@@ -18,10 +18,14 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@pinia/nuxt": "^0.11.1",
     "@tailwindcss/vite": "^4.1.10",
+    "dayjs": "^1.11.13",
+    "echarts": "^5.6.0",
     "eslint": "^9.29.0",
     "nuxt": "^3.17.5",
     "pinia": "^3.0.3",
+    "tailwind-scrollbar": "^4.0.2",
     "vue": "^3.5.16",
+    "vue-echarts": "^7.0.3",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
