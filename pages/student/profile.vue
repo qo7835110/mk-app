@@ -13,106 +13,15 @@
                 帳號紀錄
             </div>
             <div class="gap-y-4 flex flex-col">
-                <div
-                    class="flex items-center justify-between py-4 px-3 rounded-xl bg-white shadow w-full gap-x-5"
-                >
-                    <div class="text-brown font-bold text-xl">請假申請</div>
-                    <div class="flex-1 flex items-center">
-                        <div class="flex items-center gap-x-2 mr-4">
-                            <div
-                                class="bg-blue-500 text-white font-bold py-1 px-2 rounded-2xl text-[10px]"
-                            >
-                                請假申請
-                            </div>
-                            <div
-                                class="bg-yellow-500 text-white font-bold py-1 px-2 rounded-2xl text-[10px]"
-                            >
-                                請假申請
-                            </div>
-                        </div>
-                        <div class="text-brown-400">2012年12月1日 20:00</div>
-                    </div>
-                    <div
-                        class="bg-blue-500 text-white font-bold py-2 px-5 rounded-2xl text-sm"
-                    >
-                        待確認
-                    </div>
-                </div>
-                <div
-                    class="flex items-center justify-between py-4 px-3 rounded-xl bg-white shadow w-full gap-x-5"
-                >
-                    <div class="text-brown font-bold text-xl">請假申請</div>
-                    <div class="flex-1 flex items-center">
-                        <div class="flex items-center gap-x-2 mr-4">
-                            <div
-                                class="bg-blue-500 text-white font-bold py-1 px-2 rounded-2xl text-[10px]"
-                            >
-                                請假申請
-                            </div>
-                            <div
-                                class="bg-yellow-500 text-white font-bold py-1 px-2 rounded-2xl text-[10px]"
-                            >
-                                請假申請
-                            </div>
-                        </div>
-                        <div class="text-brown-400">2012年12月1日 20:00</div>
-                    </div>
-                    <div
-                        class="bg-blue-500 text-white font-bold py-2 px-5 rounded-2xl text-sm"
-                    >
-                        待確認
-                    </div>
-                </div>
-                <div
-                    class="flex items-center justify-between py-4 px-3 rounded-xl bg-white shadow w-full gap-x-5"
-                >
-                    <div class="text-brown font-bold text-xl">請假申請</div>
-                    <div class="flex-1 flex items-center">
-                        <div class="flex items-center gap-x-2 mr-4">
-                            <div
-                                class="bg-blue-500 text-white font-bold py-1 px-2 rounded-2xl text-[10px]"
-                            >
-                                請假申請
-                            </div>
-                            <div
-                                class="bg-yellow-500 text-white font-bold py-1 px-2 rounded-2xl text-[10px]"
-                            >
-                                請假申請
-                            </div>
-                        </div>
-                        <div class="text-brown-400">2012年12月1日 20:00</div>
-                    </div>
-                    <div
-                        class="bg-blue-500 text-white font-bold py-2 px-5 rounded-2xl text-sm"
-                    >
-                        待確認
-                    </div>
-                </div>
-                <div
-                    class="flex items-center justify-between py-4 px-3 rounded-xl bg-white shadow w-full gap-x-5"
-                >
-                    <div class="text-brown font-bold text-xl">請假申請</div>
-                    <div class="flex-1 flex items-center">
-                        <div class="flex items-center gap-x-2 mr-4">
-                            <div
-                                class="bg-blue-500 text-white font-bold py-1 px-2 rounded-2xl text-[10px]"
-                            >
-                                請假申請
-                            </div>
-                            <div
-                                class="bg-yellow-500 text-white font-bold py-1 px-2 rounded-2xl text-[10px]"
-                            >
-                                請假申請
-                            </div>
-                        </div>
-                        <div class="text-brown-400">2012年12月1日 20:00</div>
-                    </div>
-                    <div
-                        class="bg-blue-500 text-white font-bold py-2 px-5 rounded-2xl text-sm"
-                    >
-                        待確認
-                    </div>
-                </div>
+                <LogItem
+                    v-for="(record, index) in accountRecords"
+                    :key="index"
+                    :title="record.title"
+                    :tags="record.tags"
+                    :date="record.date"
+                    :status="record.status"
+                    :status-color="record.statusColor"
+                />
             </div>
         </div>
     </div>
@@ -202,6 +111,54 @@ const courseList = ref([
         difficultyTags: [{ text: '基礎程度', level: 'basic' }],
         lastUpdated: 'YYYY年MM月DD日 HH:mm',
     },
+]);
+
+// 帳號記錄工廠函數
+function createAccountRecord({ title, tags, date, status, statusColor }) {
+    return { title, tags, date, status, statusColor };
+}
+
+// 帳號記錄列表
+const accountRecords = ref([
+    createAccountRecord({
+        title: '請假申請',
+        tags: [
+            { text: '請假申請', color: 'bg-blue-500' },
+            { text: '病假', color: 'bg-yellow-500' }
+        ],
+        date: '2012年12月1日 20:00',
+        status: '待確認',
+        statusColor: 'bg-blue-500'
+    }),
+    createAccountRecord({
+        title: '補課申請',
+        tags: [
+            { text: '補課', color: 'bg-green-500' },
+            { text: '補課申請', color: 'bg-yellow-500' }
+        ],
+        date: '2013年1月5日 09:30',
+        status: '已完成',
+        statusColor: 'bg-green-500'
+    }),
+    createAccountRecord({
+        title: '資料修改',
+        tags: [
+            { text: '個人資料', color: 'bg-purple-500' }
+        ],
+        date: '2014年5月10日 14:20',
+        status: '待確認',
+        statusColor: 'bg-blue-500'
+    }),
+    createAccountRecord({
+        title: '請假申請',
+        tags: [
+            { text: '事假', color: 'bg-blue-500' },
+            { text: '請假申請', color: 'bg-yellow-500' }
+        ],
+        date: '2015年8月21日 18:00',
+        status: '已拒絕',
+        statusColor: 'bg-red-500'
+    })
 ]);
 </script>
 

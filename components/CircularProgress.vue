@@ -50,15 +50,21 @@ const props = defineProps({
     color: {
         type: String,
         default: 'orange'
+    },
+    bgColor: {
+        type: String,
+        default: ''
     }
 })
 
 const percentage = computed(() => (props.value / props.maxValue) * 100)
 const radius = computed(() => {
+    if (props.size === 'huge') return 100
     if (props.size === 'extra-large') return 50
     return props.size === 'large' ? 40 : 28
 })
 const strokeWidth = computed(() => {
+    if (props.size === 'huge') return 18
     if (props.size === 'extra-large') return 10
     return props.size === 'large' ? 8 : 5
 })
@@ -88,5 +94,5 @@ const bgColorMap = {
 }
 
 const strokeColor = computed(() => colorMap[props.color])
-const bgStrokeColor = computed(() => bgColorMap[props.color])
+const bgStrokeColor = computed(() => props.bgColor ? props.bgColor : bgColorMap[props.color])
 </script>
