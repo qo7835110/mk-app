@@ -2,7 +2,7 @@
     <div class="bg-[#F8F7F0] min-h-screen">
         <div class="rounded-2xl h-full flex">
             <!-- 樹狀導航側邊欄 -->
-            <TreeNavigation />
+            <LeftSidebar />
             
             <!-- 主要內容區域 -->
             <div class="flex-1 p-8">
