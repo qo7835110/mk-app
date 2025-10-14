@@ -27,7 +27,7 @@
         <!-- Navigation Menu -->
         <div class="mt-[48px] space-y-[12px]">
             <!-- 主界面 -->
-            <div class="space-y-[8px]">
+            <div class="">
                 <div class="flex items-center justify-between h-[48px] w-[196px] rounded-xl px-[20px] py-[16px] cursor-pointer"
                     :class="isMainMenuActive ? 'bg-[#ebe2dc] text-brown' : 'text-[#adaca7] hover:bg-[#f5f2ed]'"
                     @click="toggleMainMenu">
@@ -66,88 +66,78 @@
 
                 <!-- 子選單 -->
                 <Transition name="submenu">
-                    <div v-show="isMainMenuExpanded" class="relative ml-[20px] pl-[20px] space-y-[8px]">
-                        <!-- 主垂直線 -->
-                        <div class="tree-vertical-line" />
-
+                    <div v-show="isMainMenuExpanded" class="relative ml-[20px] pl-[20px]">
                         <!-- 第一個子項目 -->
-                        <div class="relative">
-                            <!-- 弧形連接線 -->
-                            <svg class="tree-curved-line" viewBox="0 0 20 20" fill="none">
-                                <path d="M 10 0 Q 10 10 20 10" />
-                            </svg>
-                            <NuxtLink
-                                to="/visitor/club"
-                                class="flex items-center h-[40px] w-[156px] rounded-lg px-[16px] py-[12px] text-[16px]"
+                        <div class="flex">
+                            <div class="text-[#adaca7]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="36">
+                                    <g id="Layer_1">
+                                        <line y1="-0.05556" stroke-linecap="undefined" stroke-linejoin="undefined"
+                                            id="svg_6" y2="36.00963" x2="3.83333" x1="3.83333" stroke="#adaca7"
+                                            fill="none" />
+                                        <path id="svg_11" d="m10.27778,17.27778" opacity="NaN" stroke="#adaca7"
+                                            fill="none" />
+                                        <path id="svg_32"
+                                            d="m3.88889,16.88889c0.77778,2.66667 8.66667,3.94444 10.94444,3.55556"
+                                            opacity="NaN" stroke="#adaca7" fill="none" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <NuxtLink to="/visitor/club"
+                                class="flex items-center h-[36px] w-[156px] rounded-lg px-[16px] py-[12px] text-[16px]"
                                 :class="$route.path === '/visitor/club'
                                     ? 'bg-[#ebe2dc] text-brown font-medium'
-                                    : 'text-[#adaca7] hover:bg-[#f5f2ed] font-normal'"
-                            >
-                                <svg
-                                    width="6"
-                                    height="6"
-                                    viewBox="0 0 6 6"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="mr-[12px]"
-                                >
-                                    <circle
-                                        cx="3"
-                                        cy="3"
-                                        r="3"
-                                        :fill="$route.path === '/visitor' ? '#242220' : '#adaca7'"
-                                        fill-opacity="0.6"
-                                    />
-                                </svg>
+                                    : 'text-[#adaca7] hover:bg-[#f5f2ed] font-normal'">
                                 聚樂部
                             </NuxtLink>
                         </div>
 
                         <!-- 第二個子項目 -->
-                        <div class="relative">
-
-                            <NuxtLink
-                                to="/visitor/reverse"
-                                class="flex items-center h-[40px] w-[156px] rounded-lg px-[16px] py-[12px] text-[16px]"
+                        <div class="flex">
+                            <div class="text-[#adaca7]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="36">
+                                    <g id="Layer_1">
+                                        <line y1="-0.05556" stroke-linecap="undefined" stroke-linejoin="undefined"
+                                            id="svg_6" y2="36.00963" x2="3.83333" x1="3.83333" stroke="#adaca7"
+                                            fill="none" />
+                                        <path id="svg_11" d="m10.27778,17.27778" opacity="NaN" stroke="#adaca7"
+                                            fill="none" />
+                                        <path id="svg_32"
+                                            d="m3.88889,16.88889c0.77778,2.66667 8.66667,3.94444 10.94444,3.55556"
+                                            opacity="NaN" stroke="#adaca7" fill="none" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <NuxtLink to="/visitor/reverse"
+                                class="flex items-center h-[36px] w-[156px] rounded-lg px-[16px] py-[12px] text-[16px]"
                                 :class="$route.path === '/visitor/reverse'
                                     ? 'bg-[#ebe2dc] text-brown font-medium'
-                                    : 'text-[#adaca7] hover:bg-[#f5f2ed] font-normal'"
-                            >
+                                    : 'text-[#adaca7] hover:bg-[#f5f2ed] font-normal'">
                                 反轉學習
                             </NuxtLink>
                         </div>
-
                         <!-- 最後一個子項目 -->
-                        <div class="relative">
+                        <div class="flex">
                             <!-- 弧形連接線（最後一個項目） -->
-                            <svg class="tree-curved-line" viewBox="0 0 20 20" fill="none">
-                                <path d="M 10 0 Q 10 10 20 10" />
-                            </svg>
-                            <!-- 覆蓋垂直線的下半部分 -->
-                            <div class="tree-cover-line" />
-                            <NuxtLink
-                                to="/visitor/hall"
-                                class="flex items-center h-[40px] w-[156px] rounded-lg px-[16px] py-[12px] text-[16px]"
-                                :class="$route.path === '/visitor/hall'
-                                    ? 'bg-[#ebe2dc] text-brown font-medium'
-                                    : 'text-[#adaca7] hover:bg-[#f5f2ed] font-normal'"
-                            >
-                                <svg
-                                    width="6"
-                                    height="6"
-                                    viewBox="0 0 6 6"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="mr-[12px]"
-                                >
-                                    <circle
-                                        cx="3"
-                                        cy="3"
-                                        r="3"
-                                        :fill="$route.path === '/visitor/hall' ? '#242220' : '#adaca7'"
-                                        fill-opacity="0.6"
-                                    />
+                            <div class="text-[#adaca7]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="36">
+                                    <g id="Layer_1">
+                                        <line y1="-19.05556" stroke-linecap="undefined" stroke-linejoin="undefined"
+                                            id="svg_6" y2="17.00963" x2="3.83333" x1="3.83333" stroke="#adaca7"
+                                            fill="none" />
+                                        <path id="svg_11" d="m10.27778,17.27778" opacity="NaN" stroke="#adaca7"
+                                            fill="none" />
+                                        <path id="svg_32"
+                                            d="m3.83333,16.77778c0.77778,2.66667 8.72222,4.16667 11,3.77778"
+                                            opacity="NaN" stroke="#adaca7" fill="none" />
+                                    </g>
                                 </svg>
+                            </div>
+                            <NuxtLink to="/visitor/mkLobby"
+                                class="flex items-center h-[36px] w-[156px] rounded-lg px-[16px] py-[12px] text-[16px]"
+                                :class="$route.path === '/visitor/mkLobby'
+                                    ? 'bg-[#ebe2dc] text-brown font-medium'
+                                    : 'text-[#adaca7] hover:bg-[#f5f2ed] font-normal'">
                                 MK大廳
                             </NuxtLink>
                         </div>
