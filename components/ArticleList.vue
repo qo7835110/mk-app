@@ -129,7 +129,7 @@ const posts = ref([
                             <span class="flex items-center gap-1.5">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="h-4 w-4"
+                                    class="h-8 w-8"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -146,7 +146,7 @@ const posts = ref([
                             <span class="flex items-center gap-1.5">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="h-4 w-4"
+                                    class="h-8 w-8"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -163,7 +163,7 @@ const posts = ref([
                             <span class="flex items-center gap-1.5">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="h-4 w-4"
+                                    class="h-8 w-8"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -179,8 +179,8 @@ const posts = ref([
                             </span>
                         </div>
                         <a
-                            href="#"
-                            class="flex items-center gap-1 text-sm font-bold text-stone-700 hover:text-black"
+                            href="/visitor/mkLobbyArticle"
+                            class="flex items-center gap-1 font-black text-brown hover:text-black"
                         >
                             詳看全文
                             <svg

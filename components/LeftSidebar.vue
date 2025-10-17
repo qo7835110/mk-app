@@ -238,6 +238,7 @@ import { ref, computed } from 'vue'
 
 // 主選單展開狀態
 const isMainMenuExpanded = ref(true)
+const isSidebarCollapsed = ref(false)
 
 // 檢查是否在主選單相關路由
 const route = useRoute()
